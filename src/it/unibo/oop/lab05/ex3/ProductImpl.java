@@ -3,7 +3,7 @@ package it.unibo.oop.lab05.ex3;
 public class ProductImpl implements Product {
 
 	private final String name;
-	private double quantity;
+	private final double quantity;
 	
 	public ProductImpl(String name, double quantity) {
 		this.name = name;

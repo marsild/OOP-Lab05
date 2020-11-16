@@ -7,39 +7,40 @@ public class WarehouseImpl implements Warehouse {
 	Set<Product> allProducts;
 
 	public WarehouseImpl() {
-		this.allProducts = new LinkedHashSet<>();;
+		this.allProducts = new HashSet<>();;
 	}
 
 	public void addProduct(Product p) {
 		
-		allProducts.add(p);
+		this.allProducts.add(p);
 		
 	}
 
 	public Set<String> allNames() {
-		Set<String> returnSet = new TreeSet<>();
-		for(Product p : allProducts) {
+		Set<String> returnSet = new HashSet<>();
+		for(Product p : this.allProducts) {
 			returnSet.add(p.getName());
 		}
 		return returnSet;
 	}
 
 	public Set<Product> allProducts() {
-		return new LinkedHashSet<>(allProducts);
+		return new HashSet<>(this.allProducts);
 	}
 
 	public boolean containsProduct(Product p) {
-		for(Product pe : allProducts) {
+		/*for(Product pe : allProducts) {
 			if(pe.equals(p)) {
 				return true;
 			}
 		}
-		return false;
+		return false;*/
+		return this.allProducts.contains(p);
 	}
 
 	public double getQuantity(String name) {
-		for(Product pe : allProducts) {
-			if(pe.getName()==name) {
+		for(Product pe : this.allProducts) {
+			if(pe.getName().equals(name)) {
 				return pe.getQuantity();
 			}
 		}
